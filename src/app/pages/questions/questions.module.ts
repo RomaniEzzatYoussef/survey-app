@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { QuestionsPageRoutingModule } from './questions-routing.module';
 import { QuestionsPage } from './questions.page';
 import {StarRatingModule} from 'ionic5-star-rating';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
     imports: [
@@ -13,7 +14,8 @@ import {StarRatingModule} from 'ionic5-star-rating';
         IonicModule,
         QuestionsPageRoutingModule,
         ReactiveFormsModule,
-        StarRatingModule
+        StarRatingModule,
+        TranslateModule
     ],
     declarations: [QuestionsPage]
 })

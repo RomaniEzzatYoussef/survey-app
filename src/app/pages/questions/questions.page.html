@@ -3,7 +3,12 @@
     <ion-buttons  slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{'question ' + questions[questionIndex].pageNumber + ' of ' + (questions.length)}}</ion-title>
+    <ion-title>
+        {{'questions.question' | translate }}
+        {{' ' + questions[questionIndex].pageNumber + ' ' }}
+        {{  'questions.of' | translate }}
+        {{  ' ' + (questions.length)}}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -33,11 +38,11 @@
 <!--                <ion-label>Should st least be 6 characters long.</ion-label>-->
 <!--            </ion-item>-->
             <ion-item class="ion-margin">
-                <ion-button [disabled]="questionIndex === 0" slot="start" type="button"(click)="back()">Back</ion-button>
-                <ion-button [disabled]="(questionIndex === questions.length-1)" slot="end" type="button" (click)="next()">Next</ion-button>
+                <ion-button [disabled]="questionIndex === 0" slot="start" type="button"(click)="back()">{{'questions.backButton' | translate}}</ion-button>
+                <ion-button [disabled]="(questionIndex === questions.length-1)" slot="end" type="button" (click)="next()">{{'questions.nextButton' | translate}}</ion-button>
             </ion-item>
         </form>
-        <ion-button [disabled]="questionIndex !== questions.length-1" type="button" (click)="onSubmitSurvey()" expand="full">Submit</ion-button>
+        <ion-button [disabled]="questionIndex !== questions.length-1" type="button" (click)="onSubmitSurvey()" expand="full">{{'questions.submitButton' | translate}}</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

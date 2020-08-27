@@ -1,0 +1,17 @@
+{
+  "welcome": {
+    "startSurveyButton": "Start Survey",
+    "language": "Language"
+  },
+  "questions": {
+    "question": "question",
+    "of": "of",
+    "backButton": "back",
+    "nextButton": "next",
+    "submitButton": "submit"
+  },
+  "leave": {
+    "leaveSurveyButton": "Leave Survey"
+  }
+
+}

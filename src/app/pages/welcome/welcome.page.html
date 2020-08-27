@@ -9,6 +9,16 @@
 <ion-content>
   <ion-grid class="ion-no-padding">
     <ion-row>
+      <ion-col size-sm="6" offset-sm="3" class="ion-margin">
+          <ion-item>
+              <ion-label>{{'welcome.language' | translate}}</ion-label>
+              <ion-select #languageSelect (ionChange)="translateService.use(languageSelect.value)">
+                  <ion-select-option *ngFor="let lang of translateService.getLangs()">{{lang}}</ion-select-option>
+              </ion-select>
+          </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
         <ion-col>
             <div class="wave-container">
                 <h1 class="ion-text-center ion-margin">{{survey.name + ' Survey'}}</h1>
@@ -16,7 +26,7 @@
                 <ion-img class="ion-margin" [src]="survey.logo"></ion-img>
 
                 <ion-button color="primary" shape="round" class="ion-margin ion-text-capitalize" (click)="onStart()">
-                    Start Survey
+                    {{'welcome.startSurveyButton' | translate}}
                 </ion-button>
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

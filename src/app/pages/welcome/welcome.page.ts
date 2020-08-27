@@ -5,6 +5,7 @@ import {SurveyService} from '../../services/survey/survey.service';
 import {NavigationExtras, Router} from '@angular/router';
 import {DataLoaded} from '../../model/data-loaded.model';
 import {Question} from '../../model/question.model';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-welcome',
@@ -31,8 +32,14 @@ export class WelcomePage implements OnInit, OnDestroy {
 
   constructor(
       private surveyService: SurveyService,
+      private translateService: TranslateService,
       private router: Router,
-  ) {}
+  ) {
+    translateService.addLangs(['en', 'de']);
+    translateService.setDefaultLang('en');
+    // const browserLang = translateService.getBrowserLang();
+    // translateService.use(browserLang.match(/en|de/) ? browserLang : 'en');
+  }
 
   ngOnInit(): void {
     this.surveySubscription = this.surveyService.getSurvey('01').subscribe(survey => {

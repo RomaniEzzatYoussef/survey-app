@@ -7,6 +7,7 @@ import {SurveyAnswerService} from '../../services/surveyAnswer/survey-answer.ser
 import {Survey} from '../../model/survey.model';
 import {QuestionAnswer} from '../../model/question-answer.model';
 import {SurveyAnswer} from '../../model/survey-answer.model';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-questions',
@@ -27,7 +28,7 @@ export class QuestionsPage implements OnInit {
       private router: Router,
       private surveyAnswerService: SurveyAnswerService,
       private loadingController: LoadingController,
-  ) { }
+  ) {}
 
   ngOnInit() {
     const survey = this.route.snapshot.queryParamMap.get('survey');
