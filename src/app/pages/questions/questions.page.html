@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'question ' + questions[questionIndex].pageNumber + ' of ' + (questions.length)}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="grid">
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3" class="ion-margin">
+        <form [formGroup]="form" (ngSubmit)="next()">
+            <ion-item class="ion-margin">
+                <ion-text>
+                    <p>{{questions[questionIndex].pageNumber}}. {{questions[questionIndex].pageName}}</p>
+                </ion-text>
+            </ion-item>
+
+            <ion-item class="ion-margin" *ngIf="questions[questionIndex].type == 'rating'">
+                <ionic5-star-rating #ratingCtrl (ratingChanged)="onRating($event)" [rating]="+questions[questionIndex].defaultValue"></ionic5-star-rating>
+            </ion-item>
+
+            <ion-item class="ion-margin" *ngIf="questions[questionIndex].type == 'text'">
+                <ion-input #textCtrl type="text" formControlName="text" [required]="this.questions[this.questionIndex].required"></ion-input>
+            </ion-item>
+
+            <ion-item class="ion-margin" *ngIf="questions[questionIndex].type == 'number'">
+                <ion-input #numberCtrl type="number" formControlName="number" [required]="this.questions[this.questionIndex].required"></ion-input>
+            </ion-item>
+<!--            <ion-item *ngIf="!textInput.valid && textInput.touched" lines="none">-->
+<!--                <ion-label>Should st least be 6 characters long.</ion-label>-->
+<!--            </ion-item>-->
+            <ion-item class="ion-margin">
+                <ion-button [disabled]="questionIndex === 0" slot="start" type="button"(click)="back()">Back</ion-button>
+                <ion-button [disabled]="(questionIndex === questions.length-1)" slot="end" type="button" (click)="next()">Next</ion-button>
+            </ion-item>
+        </form>
+        <ion-button [disabled]="questionIndex !== questions.length-1" type="button" (click)="onSubmitSurvey()" expand="full">Submit</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<!--            <app-question [defaultValue]="this.questions[this.questionIndex].defaultValue"-->
+<!--                          [name]="this.questions[this.questionIndex].name"-->
+<!--                          [type]="questions[questionIndex].type"-->
+<!--                          [value]="questions[questionIndex].defaultValue"-->
+<!--                          (questionValue)="onEmitValue($event)"-->
+<!--            ></app-question>-->

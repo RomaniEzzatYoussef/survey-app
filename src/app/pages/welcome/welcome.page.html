@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      {{survey.welcomeMessage}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+        <ion-col>
+            <div class="wave-container">
+                <h1 class="ion-text-center ion-margin">{{survey.name + ' Survey'}}</h1>
+                <p style="color: #0d0d0d" class="ion-text-center ion-margin">{{survey.description}}</p>
+                <ion-img class="ion-margin" [src]="survey.logo"></ion-img>
+
+                <ion-button color="primary" shape="round" class="ion-margin ion-text-capitalize" (click)="onStart()">
+                    Start Survey
+                </ion-button>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#ffc409" fill-opacity="1"
+                          d="M0,64L120,101.3C240,139,480,213,720,202.7C960,192,1200,96,1320,48L1440,0L1440,320L1320,
+                          320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
+                    </path>
+                </svg>
+            </div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
